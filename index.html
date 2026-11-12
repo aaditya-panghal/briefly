@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://accounts.google.com/gsi/client; style-src 'self' https://accounts.google.com/gsi/style; connect-src https://gmail.googleapis.com https://accounts.google.com/gsi/; frame-src https://accounts.google.com/gsi/; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+<meta name="description" content="Briefly sorts your college inbox into deadlines, actions and events, and hides the noise.">
+<title>Briefly</title>
+<link rel="stylesheet" href="styles.css">
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script type="module" src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#list">Skip to messages</a>
+
+<main id="login">
+  <div class="card">
+    <h1>Briefly</h1>
+    <p>Your college inbox, minus the noise.</p>
+    <button class="btn" id="signin" type="button">Sign in with Google</button>
+    <button class="btn ghost" id="demo" type="button">Try demo mailbox</button>
+    <p id="err" role="alert"></p>
+  </div>
+</main>
+
+<div class="app" id="app" hidden>
+  <nav aria-label="Mailboxes">
+    <h1>Briefly</h1>
+    <div id="nav"></div>
+    <button class="who" id="who" type="button"></button>
+  </nav>
+  <main class="list" id="list" tabindex="-1" aria-label="Messages" aria-live="polite"></main>
+  <article class="reader" id="reader" aria-label="Selected message"></article>
+</div>
+</body>
+</html>
